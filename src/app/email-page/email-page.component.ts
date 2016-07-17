@@ -10,15 +10,15 @@ import 'rxjs/add/operator/map';
   animations: [
     trigger('state', [
      state('active',  style({ height: AUTO_STYLE, background: 'blue' })),
-      state('hidden',  style({ height: '0px', opacity: 0})),
-      transition('active => hidden', [animate('100ms')]),
-      transition('hidden => active', [animate('350ms')]),
+      state('hidden',  style({ height: '0px', opacity: 0 })),
+      transition('active => hidden', [animate('250ms')]),
+      transition('hidden => active', [animate('250ms')]),
     ]),
   ]
 })
 export class EmailPageComponent implements OnInit {
 
-  selectedEmail;
+  selectedEmail = null;
   emails: any[];
 
   constructor(private http:Http =null) {
@@ -29,6 +29,14 @@ export class EmailPageComponent implements OnInit {
         this.selectedEmail = this.emails[0];
          console.log("show: "+ JSON.stringify(this.selectedEmail));
       });
+  }
+
+  handsomeClick(email: any) {
+    this.selectedEmail = null;
+    setTimeout(() => {
+      this.selectedEmail = email;
+    }, 250);
+    console.log("I am handsome Eric!");
   }
 
   ngOnInit() {

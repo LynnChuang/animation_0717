@@ -1,6 +1,8 @@
-<button class="btn btn-success" (click)="expand()" @rotate='in'>Expand</button>
-    <button class="btn btn-danger" (click)="collapse()" @rotate='in'>Collapse</button>
+<div @state='handsomeAnimate=="lynn" ? "active" : "hidden"'>
+  <button class="btn btn-success" (click)="expand()">Expand</button>
+    <button class="btn btn-danger" (click)="collapse()">Collapse</button>
     <hr />
     <div class="container" @openClose="animationState">
       <app-email-page></app-email-page>
     </div>
+</div>

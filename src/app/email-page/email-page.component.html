@@ -3,19 +3,21 @@
     <div class="email-list-item"
        *ngFor="let email of emails"
        [class.active]="email === selectedEmail"
-       (click)="selectedEmail = email">
+       (click)="handsomeClick(email)">
       <div class="background" @state="email === selectedEmail ? 'active' : 'hidden'"></div>
       <h1>{{ email.subject }}</h1>
       <h2>{{ email.sender }}</h2>
   </div>
   </div>
   <div class="col-md-8">
-    <div class="" *ngIf="selectedEmail">
-      <h1>{{ selectedEmail.subject }}</h1>
-      <h2>From {{ selectedEmail.sender }}</h2>
-      <hr>
-      <div class="email-body">
-        <pre>{{ selectedEmail.body }}</pre>
+    <div class="" @state="selectedEmail != null ? 'active' : 'hidden'">
+      <div *ngIf="selectedEmail">
+        <h1>{{ selectedEmail.subject }}</h1>
+        <h2>From {{ selectedEmail.sender }}</h2>
+        <hr>
+        <div class="email-body">
+          <pre>{{ selectedEmail.body }}</pre>
+        </div>
       </div>
   </div>
   </div>

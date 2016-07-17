@@ -8,36 +8,37 @@ import { EmailPageComponent } from '../email-page/';
   styleUrls: ['header.component.css'],
   directives: [ EmailPageComponent ],
   animations: [
-    trigger('openClose', [
-      state('collapsed, void',
-        style({ opacity: 0, height: '0px', color: 'white' })),
-      state('expanded',
-        style({ opacity: 1, height: AUTO_STYLE, color: 'black' })),
-      transition('collapsed <=> expanded', [
-        animate(1000)
-      ])
+        trigger('openClose', [
+          state('collapsed, void',
+            style({ opacity: 0, height: '0px', color: 'white' })),
+          state('expanded',
+            style({ opacity: 1, height: AUTO_STYLE, color: 'black' })),
+          transition('collapsed <=> expanded', [
+            animate(1000)
+          ])
+        ]),
+        trigger('state', [
+     state('active',  style({ height: AUTO_STYLE, transform: 'rotate(0deg)' })),
+      state('hidden',  style({ height: '0px', opacity: 0, transform: 'rotate(360deg)' })),
+      transition('active => hidden', [animate('250ms')]),
+      transition('hidden => active', [animate('250ms')]),
     ]),
-    trigger('rotate',[
-       state('in', style({transform: 'translateX(0)'})),
-    transition('void => *', [
-      animate(300, keyframes([
-        style({opacity: 0, transform: 'translateX(-100%)', offset: 0}),
-        style({opacity: 1, transform: 'translateX(15px)',  offset: 0.3}),
-        style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
-      ]))
-    ])
-      ])
   ]
 })
 export class HeaderComponent implements OnInit {
 
   animationState: string;
+  handsomeAnimate: string = "handsome";
   constructor() {
     this.collapse();
   }
 
   ngOnInit() {
-  }
+    setTimeout(() => {
+      this.handsomeAnimate = "lynn";
+    }, 0);
+}
+
 
   expand() {
     this.animationState = 'expanded';
