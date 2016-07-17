@@ -10,14 +10,12 @@
   </div>
   </div>
   <div class="col-md-8">
-    <div class=""
-       *ngFor="let email of emails"
-       @state="email === selectedEmail ? 'active' : 'hidden'">
-      <h1>{{ email.subject }}</h1>
-      <h2>From {{ email.sender }}</h2>
+    <div class="" *ngIf="selectedEmail">
+      <h1>{{ selectedEmail.subject }}</h1>
+      <h2>From {{ selectedEmail.sender }}</h2>
       <hr>
       <div class="email-body">
-        <pre>{{ email.body }}</pre>
+        <pre>{{ selectedEmail.body }}</pre>
       </div>
   </div>
   </div>
