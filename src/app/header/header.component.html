@@ -1,0 +1,6 @@
+<button class="btn btn-success" (click)="expand()" @rotate='in'>Expand</button>
+    <button class="btn btn-danger" (click)="collapse()" @rotate='in'>Collapse</button>
+    <hr />
+    <div class="container" @openClose="animationState">
+      <app-email-page></app-email-page>
+    </div>

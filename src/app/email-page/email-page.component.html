@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="email-list-item"
+       *ngFor="let email of emails"
+       [class.active]="email === selectedEmail"
+       (click)="selectedEmail = email">
+      <div class="background" @state="email === selectedEmail ? 'active' : 'hidden'"></div>
+      <h1>{{ email.subject }}</h1>
+      <h2>{{ email.sender }}</h2>
+  </div>
+  </div>
+  <div class="col-md-8">
+    <div class=""
+       *ngFor="let email of emails"
+       @state="email === selectedEmail ? 'active' : 'hidden'">
+      <h1>{{ email.subject }}</h1>
+      <h2>From {{ email.sender }}</h2>
+      <hr>
+      <div class="email-body">
+        <pre>{{ email.body }}</pre>
+      </div>
+  </div>
+  </div>
+</div>

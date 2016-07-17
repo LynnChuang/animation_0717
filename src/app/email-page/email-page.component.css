@@ -1,0 +1,64 @@
+.left {
+  width: 30%;
+  border-right: 1px solid #666;
+  height: 100%;
+  overflow: auto;
+}
+.right {
+  width: 70%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  flex-grow: 1;
+}
+.email-list-item {
+  border-bottom: 1px solid #ccc;
+  padding: 20px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+}
+.email-list-item * {
+  z-index: 1;
+  position: relative;
+}
+.email-list-item.active {
+  color: white;
+}
+.email-list-item .background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.email-list-item h1 {
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.email-list-item h2 {
+  font-weight: normal;
+  font-size: 14px;
+  margin: 0;
+}
+.email-full {
+  padding: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.email-full h1 {
+  margin: 0;
+}
+.email-full h2 {
+  font-size: 14px;
+  margin: 0;
+}
+.email-body{
+  text-align: left;
+}
+
