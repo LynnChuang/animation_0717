@@ -11,8 +11,7 @@ import 'rxjs/add/operator/map';
     trigger('state', [
      state('active',  style({ height: AUTO_STYLE, background: 'blue' })),
       state('hidden',  style({ height: '0px', opacity: 0 })),
-      transition('active => hidden', [animate('250ms')]),
-      transition('hidden => active', [animate('250ms')]),
+      transition('active <=> hidden', [animate('350ms')])
     ]),
   ]
 })
@@ -27,24 +26,17 @@ export class EmailPageComponent implements OnInit {
         .subscribe((value)=>{
         this.emails=value;
         this.selectedEmail = this.emails[0];
-         console.log("show: "+ JSON.stringify(this.selectedEmail));
+        //  console.log("show: "+ JSON.stringify(this.selectedEmail));
       });
   }
 
-  handsomeClick(email: any) {
+  select(email: any) {
     this.selectedEmail = null;
     setTimeout(() => {
       this.selectedEmail = email;
-    }, 250);
-    console.log("I am handsome Eric!");
+    }, 0);
   }
 
   ngOnInit() {
+  }
 }
-
-}
-
-
-// class Page {
-//   constructor(public title: string, public content: string) {}
-// }

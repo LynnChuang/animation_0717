@@ -18,25 +18,27 @@ import { EmailPageComponent } from '../email-page/';
           ])
         ]),
         trigger('state', [
-     state('active',  style({ height: AUTO_STYLE, transform: 'rotate(0deg)' })),
-      state('hidden',  style({ height: '0px', opacity: 0, transform: 'rotate(360deg)' })),
-      transition('active => hidden', [animate('250ms')]),
-      transition('hidden => active', [animate('250ms')]),
-    ]),
-  ]
+         state('active',
+           style({ transform: 'rotate(0deg)' })),
+         state('hidden',
+           style({ transform: 'rotate(360deg)' })),
+         transition('active => hidden', [animate('250ms')]),
+         transition('hidden => active', [animate('250ms')]),
+        ]),
+    ]
 })
 export class HeaderComponent implements OnInit {
 
+  rotateState: string ="hidden";
   animationState: string;
-  handsomeAnimate: string = "handsome";
   constructor() {
     this.collapse();
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.handsomeAnimate = "lynn";
-    }, 0);
+   setTimeout(() => {
+      this.rotateState = "active";
+   }, 0);
 }
 
 
