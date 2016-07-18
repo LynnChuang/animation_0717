@@ -11,7 +11,7 @@
   </div>
   <div class="col-md-8">
     <div @state="selectedEmail != null ? 'active' : 'hidden'">
-      <div *ngIf="selectedEmail">
+      <div class="email-full" *ngIf="selectedEmail">
         <h1>{{ selectedEmail.subject }}</h1>
         <h2>From {{ selectedEmail.sender }}</h2>
         <hr>
