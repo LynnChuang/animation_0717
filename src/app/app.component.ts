@@ -9,5 +9,5 @@ import { HeaderComponent } from './header/';
   directives: [HeaderComponent]
 })
 export class AppComponent {
-  title = 'Angular2 Animation System Demo!';
+  title = 'Angular 2 Animation System Demo!';
 }

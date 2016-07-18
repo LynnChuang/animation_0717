@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, transition, animate,AUTO_STYLE } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
 import {Http, Request} from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -9,10 +9,9 @@ import 'rxjs/add/operator/map';
   styleUrls: ['email-page.component.css'],
   animations: [
     trigger('state', [
-     state('active',  style({ height: AUTO_STYLE, background: 'blue' })),
+     state('active',  style({ height: '*', background: 'blue' })),
       state('hidden',  style({ height: '0px', opacity: 0 })),
-      transition('active => hidden', [animate('250ms')]),
-      transition('hidden => active', [animate('250ms')]),
+      transition('active <=> hidden', [animate('350ms')])
     ]),
   ]
 })
@@ -27,24 +26,17 @@ export class EmailPageComponent implements OnInit {
         .subscribe((value)=>{
         this.emails=value;
         this.selectedEmail = this.emails[0];
-         console.log("show: "+ JSON.stringify(this.selectedEmail));
+        //  console.log("show: "+ JSON.stringify(this.selectedEmail));
       });
   }
 
-  handsomeClick(email: any) {
+  select(email: any) {
     this.selectedEmail = null;
     setTimeout(() => {
       this.selectedEmail = email;
-    }, 250);
-    console.log("I am handsome Eric!");
+    }, 0);
   }
 
   ngOnInit() {
+  }
 }
-
-}
-
-
-// class Page {
-//   constructor(public title: string, public content: string) {}
-// }
