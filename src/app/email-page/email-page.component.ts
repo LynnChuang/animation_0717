@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, transition, animate,AUTO_STYLE } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate} from '@angular/core';
 import {Http, Request} from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['email-page.component.css'],
   animations: [
     trigger('state', [
-     state('active',  style({ height: AUTO_STYLE, background: 'blue' })),
+     state('active',  style({ height: '*', background: 'blue' })),
       state('hidden',  style({ height: '0px', opacity: 0 })),
       transition('active <=> hidden', [animate('350ms')])
     ]),

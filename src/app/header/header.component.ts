@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, AUTO_STYLE, transition, animate, keyframes } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { EmailPageComponent } from '../email-page/';
 
 @Component({
@@ -9,21 +9,19 @@ import { EmailPageComponent } from '../email-page/';
   directives: [ EmailPageComponent ],
   animations: [
         trigger('openClose', [
-          state('collapsed, void',
+          state('collapsed',
             style({ opacity: 0, height: '0px', color: 'white' })),
           state('expanded',
-            style({ opacity: 1, height: AUTO_STYLE, color: 'black' })),
-          transition('collapsed <=> expanded', [
-            animate(1000)
-          ])
+            style({ opacity: 1, height: '*', color: 'black' })),
+          transition('collapsed <=> expanded', [animate('1000ms')])
         ]),
         trigger('state', [
          state('active',
-           style({ transform: 'rotate(0deg)' })),
+           style({transform: 'rotate(0deg)'})),
          state('hidden',
-           style({ transform: 'rotate(360deg)' })),
+           style({transform: 'rotate(180deg)' })),
          transition('active => hidden', [animate('250ms')]),
-         transition('hidden => active', [animate('250ms')]),
+         transition('hidden => active', [animate('250ms')])
         ]),
     ]
 })
