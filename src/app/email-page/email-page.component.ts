@@ -34,7 +34,7 @@ export class EmailPageComponent implements OnInit {
     this.selectedEmail = null;
     setTimeout(() => {
       this.selectedEmail = email;
-    }, 0);
+    }, 350);
   }
 
   ngOnInit() {

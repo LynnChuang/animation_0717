@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
    setTimeout(() => {
       this.rotateState = "active";
-   }, 0);
+   }, 250);
 }
 
 
